@@ -26,6 +26,14 @@
 
   <!-- Home -->
   <section class="firstpage" id="home">
+    <div class="slideshow" aria-hidden="false">
+      <div class="slide" style="background-image: url('IMAGES/PROFILE PIC.jpeg')"></div>
+      <div class="slide" style="background-image: url('IMAGES/THRUSTMIT INDIA FLAG.jpeg')"></div>
+      <div class="slide" style="background-image: url('IMAGES/MIT FRONT SHOT.jpg')"></div>
+      <div class="slide" style="background-image: url('IMAGES/MIT DEGREE RECEIVING.jpeg')"></div>
+      <button class="slide-prev" aria-label="Previous slide">‹</button>
+      <button class="slide-next" aria-label="Next slide">›</button>
+    </div>
     <div class="firstpage-text">
             <h2>THAKUR PRANAV GOPAL SINGH</h2>
             <p>"Dream Write Build Achieve"</p>
@@ -294,4 +302,25 @@
   </footer>
 
 </body>
+<script>
+  (function(){
+    const slides = document.querySelectorAll('.slideshow .slide');
+    const prev = document.querySelector('.slide-prev');
+    const next = document.querySelector('.slide-next');
+    let index = 0;
+    let timer = null;
+    function show(i){
+      slides.forEach((s,idx)=> s.classList.toggle('active', idx===i));
+      index = i;
+    }
+    function nextSlide(){ show((index+1) % slides.length); }
+    function prevSlide(){ show((index-1+slides.length) % slides.length); }
+    next.addEventListener('click', ()=>{ nextSlide(); resetTimer(); });
+    prev.addEventListener('click', ()=>{ prevSlide(); resetTimer(); });
+    function resetTimer(){ clearInterval(timer); timer = setInterval(nextSlide, 5000); }
+    // init
+    show(0);
+    timer = setInterval(nextSlide, 5000);
+  })();
+</script>
 </html>

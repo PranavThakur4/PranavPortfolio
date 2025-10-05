@@ -111,6 +111,57 @@ section,
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+/* Firstpage slideshow */
+.firstpage {
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slideshow {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+.slideshow .slide.active {
+  opacity: 1;
+}
+.slide-prev, .slide-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+.slide-prev { left: 12px }
+.slide-next { right: 12px }
+.firstpage-text {
+  position: relative;
+  z-index: 25;
+  color: #002e7d;
+  text-align: center;
+}
 /* Base Styles */
 
 
