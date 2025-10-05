@@ -2,6 +2,24 @@
 #experience p {
   text-align: justify;
 }
+/* Offset anchor scrolling to account for fixed header */
+:root {
+  --header-height: 72px; /* adjust if your header height changes */
+}
+html {
+  scroll-padding-top: var(--header-height);
+}
+/* Ensure section headings are visible when targeted by fragment links */
+section,
+.contact-section,
+#recommendation-letters,
+#projects,
+#about,
+#skills,
+#experience,
+#Coursework {
+  scroll-margin-top: calc(var(--header-height) + 8px);
+}
 /* Coursework Table Styling */
 .coursework-table {
   width: 100%;
@@ -55,6 +73,32 @@
 .pdf-btn:hover, .pdf-btn:focus {
   background: #ffe066;
   transform: scale(1.08);
+}
+/* Recommendation Letters Section */
+.recommendation-list {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: nowrap; /* keep items on single row */
+  overflow-x: auto; /* allow horizontal scroll on small screens */
+  -webkit-overflow-scrolling: touch;
+  max-width: 1000px;
+  margin: 0 auto 0.6rem auto;
+  padding: 0.3rem 0;
+}
+.rec-item {
+  background: #fff5d7;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  flex: 0 0 300px; /* fixed width so three fit on wide screens */
+}
+.rec-item .pdf-link {
+  color: #0036b5;
+  text-decoration: none;
+  font-weight: 600;
 }
 /* Project Images: Equal and Suitable Dimensions */
 .projects-grid .project img {
@@ -150,7 +194,7 @@ nav a:hover {
 
 section {
   min-height: 60vh;
-  padding: 2rem 0.5rem;
+  padding: 1.2rem 0.5rem;
   margin: 0;
   background-color: #fffbea;
   background-repeat: no-repeat;
