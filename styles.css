@@ -117,8 +117,9 @@ section,
   overflow: hidden;
   min-height: 80vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* place content at top */
+  justify-content: center; /* center horizontally */
+  padding-top: calc(var(--header-height) + 12px); /* space below fixed header */
 }
 .slideshow {
   position: absolute;
