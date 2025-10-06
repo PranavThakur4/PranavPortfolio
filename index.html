@@ -11,8 +11,11 @@
 
   <!-- Header -->
   <header>
-    <h1>PRANAV'S PORTFOLIO</h1>
-    <nav>
+    <div class="brand">
+      <h1>PRANAV'S PORTFOLIO</h1>
+    </div>
+    <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">☰</button>
+    <nav id="main-nav">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About Me</a></li>
@@ -325,6 +328,24 @@
     // init
     show(0);
     timer = setInterval(nextSlide, 5000);
+  })();
+</script>
+<script>
+  // Mobile nav toggle
+  (function(){
+    const btn = document.getElementById('nav-toggle');
+    const nav = document.getElementById('main-nav');
+    if(!btn || !nav) return;
+    btn.addEventListener('click', ()=>{
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+    // Close nav when a link is clicked (mobile)
+    nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded','false');
+    }));
   })();
 </script>
 </html>

@@ -198,7 +198,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.6rem 1rem;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -208,11 +208,29 @@ header h1 {
   font-weight: 700;
 }
 
+.brand h1 { font-size: 1.05rem; letter-spacing: 0.5px }
+
+#nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
 }
+
+/* Make nav accessible and responsive */
+#main-nav {
+  display: block;
+}
+
+/* Ensure images are fluid */
+img { max-width: 100%; height: auto; display: block }
 
 nav a {
   text-decoration: none;
@@ -228,9 +246,9 @@ nav a:hover {
 /* Section Styling */
 
 .firstpage-text {
-    padding-left: 80px;
-    padding-top: 1px;
-    font-size: 4rem;
+  padding-left: 1rem;
+  padding-top: 1px;
+  font-size: clamp(1.6rem, 4vw, 3.8rem);
 
 }
 
@@ -273,7 +291,9 @@ section img {
 }
 
 .aboutme img {
-    padding-left: 250px;
+  padding-left: 0;
+  max-width: 380px;
+  margin: 1rem auto;
 }
 
 /* About Subsections */
@@ -396,6 +416,30 @@ footer {
   letter-spacing: 2px;
   margin-bottom: 8px;
   color: #444;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+  header { padding: 0.5rem 0.8rem }
+  nav ul { gap: 1rem }
+  #nav-toggle { display: inline-flex }
+  #main-nav { display: none }
+  #main-nav.open { display: block; position: absolute; top: 100%; right: 0; left: 0; background: #f6e27f; padding: 1rem 1rem; box-shadow: 0 6px 12px rgba(0,0,0,0.08) }
+  #main-nav ul { flex-direction: column; gap: 0.6rem }
+  #main-nav ul li { margin: 0.2rem 0 }
+  header .brand { flex: 1 }
+  .firstpage { min-height: 60vh }
+  section h2 { font-size: 2rem }
+  .projects-grid { gap: 0.8rem }
+  .container { flex-direction: column }
+  .contact-section { padding: 40px 16px }
+}
+
+@media (max-width: 520px) {
+  section h2 { font-size: 1.6rem }
+  .firstpage-text { padding-left: 0.5rem; font-size: clamp(1.2rem, 6vw, 2.6rem) }
+  .rec-item { flex: 0 0 240px }
+  .coursework-table td { min-width: 120px }
 }
 
 .info-box p {
