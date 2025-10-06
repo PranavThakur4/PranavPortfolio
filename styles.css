@@ -292,7 +292,10 @@ section img {
 
 .aboutme img {
   padding-left: 0;
-  max-width: 380px;
+  /* larger desktop image but remain fluid on small screens */
+  max-width: 720px; /* increased from 380px */
+  width: 100%;
+  height: auto;
   margin: 1rem auto;
 }
 
