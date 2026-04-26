@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  PRANAV THAKUR — PORTFOLIO  |  index.html
+  ─────────────────────────────────────────
+  STRUCTURE
+    All styling  →  style.css   (same folder)
+    All JS logic →  <script>    (bottom of this file)
+
+  SECTIONS
+    1.  <head>            meta, fonts, stylesheet
+    2.  <nav>             floating pill navbar
+    3.  #home             hero
+    4.  #about            about me
+    5.  #education        education cards
+    6.  #experience       experience timeline
+    7.  #projects         project cards + research papers
+    8.  #skills           skills grid
+    9.  #testimonials     recommendation cards
+    10. #certifications   cert cards
+    11. #events           events & competitions
+    12. #contact-section  contact info + form
+    13. <footer>          footer
+    14. <script>          JS (menu, scroll, form)
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Pranav Thakur | Mechanical Engineer & Operations Leader</title>
+  <meta name="description" content="Pranav Thakur – MS Mechanical Engineering at Duke University. Production & Operations Manager with expertise in CAD/CAM, ERP systems, aerospace manufacturing, and data engineering." />
+  <meta name="keywords"    content="Pranav Thakur, Mechanical Engineer, Duke University, Operations Manager, CAD CAM, Aerospace, ERP, Manufacturing" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet — edit style.css to change all visual styling -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION  —  Floating pill, fixed to top of viewport
+     Add/remove nav items: copy a <li> in .nav-links AND .mobile-menu
+═══════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+
+    <!-- Logo — edit text here -->
+    <a href="#home" class="nav-logo">
+      Pranav<span class="nav-logo-dot">.</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonial</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
+
+    <!-- Desktop right actions -->
+    <div class="nav-right"> 
+      <a href="Docs/Thakur, Pranav_Resume.pdf"
+         target="_blank" class="nav-resume">
+        <svg width="15" height="15" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Resume
+      </a>
+      <a href="#contact-section" class="nav-cta">Contact</a>
+    </div>
+
+    <!-- Hamburger (mobile only) -->
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </div>
+
+  </div><!-- /.nav-inner -->
+
+  <!-- Mobile dropdown (toggled by JS) -->
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#about"           onclick="toggleMenu()">About</a></li>
+    <li><a href="#education"       onclick="toggleMenu()">Education</a></li>
+    <li><a href="#experience"      onclick="toggleMenu()">Experience</a></li>
+    <li><a href="#projects"        onclick="toggleMenu()">Projects</a></li>
+    <li><a href="#skills"          onclick="toggleMenu()">Skills</a></li>
+    <li><a href="#certifications"  onclick="toggleMenu()">Certifications</a></li>
+    <li><a href="#events"          onclick="toggleMenu()">Events</a></li>
+    <li><a href="#testimonials"    onclick="toggleMenu()">Recommendations</a></li>
+    <li><a href="#contact-section" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     1.  HERO SECTION
+     Edit: availability badge, name, tagline, chips, CTA links, photo src
+═══════════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-inner">
+
+    <!-- Left: text -->
+    <div class="hero-content">
+      <div class="hero-tag">Open to Opportunities &middot; Summer & Fall 2026</div>
+      <h1 class="hero-name">Pranav<br>Thakur<span>.</span></h1>
+      <p class="hero-tagline">
+        Mechanical &amp; Operations Engineer blending manufacturing, supply chain,
+        data engineering, and product management to build systems that move industries forward.
+      </p>
+
+      <!-- Keyword chips — add/remove <span class="chip"> -->
+      <div class="hero-chips">
+        <span class="chip">Duke University MS MEMS</span>
+        <span class="chip">CAD/CAM/CAE</span>
+        <span class="chip">Python</span>
+        <span class="chip">Industrial & Manufacturing</span>
+        <span class="chip">Supply Chain</span>
+        <span class="chip">Aerospace</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work &darr;</a>
+        <a href="mailto:pt159@duke.edu" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+
+    <!-- Right: photo — replace src with your image path -->
+    <div class="hero-photo-wrap">
+      <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/IMG_3305.jpg"
+           alt="Pranav Thakur" class="hero-photo" />
+    </div>
+
+  </div><!-- /.hero-inner -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     2.  ABOUT SECTION
+     Edit: bio paragraphs, highlight cards, hobbies, coursework chips
+═══════════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">Building at the intersection<br>of engineering &amp; business</h2>
+
+    <div class="about-grid">
+
+      <!-- Left: bio + highlight cards -->
+      <div class="about-text fade-up">
+
+        <!-- Bio — edit these paragraphs -->
+        <p>I'm Pranav Thakur &mdash; an engineer always asking the <em>Golden Circle</em> questions.
+           Building things and innovation sparked my interest early, pulling me towards engineering and technology.</p>
+
+        <p>This led me to prototyping sounding rockets from scratch, earning
+           global competition rankings, and managing operations at a precision aerospace manufacturer. At BCT, I architected ERP systems using Python, AWS, and APIs; certified AS9100; led CNC
+           and CMM operations; and grew revenue by $120K in a fiscal year. As I progressed, I realized business and operations were equally critical to solving
+           real-world challenges. </p>
+
+        <p> Now pursuing my MS in
+           Mechanical Engineering &amp; Material Science at Duke University, I'm sharpening my edge
+           across advanced systems design, supply chain, and entrepreneurship.</p>
+
+        <p style="margin-top:1.25rem">&#128205; Durham, NC &nbsp;&middot;&nbsp; &#9749; Coffee-fueled &nbsp;&middot;&nbsp; &#127959; Cricket | F1 | Sketching</p>
+
+        <!-- Highlight cards — edit icon, title, desc for each -->
+        <div class="about-highlights" style="margin-top:2rem">
+
+          <div class="highlight-card">
+            <div class="highlight-icon">&#128640;</div>
+            <div>
+              <div class="highlight-title">Research &amp; Patents</div>
+              <div class="highlight-desc">2 yet to be published research papers on sounding rocket & payloads &middot; Indian Patent Office Application No. 202341075776</div>
+            </div>
+          </div>
+
+          <div class="highlight-card">
+            <div class="highlight-icon">&#127981;</div>
+            <div>
+              <div class="highlight-title">Production Leadership</div>
+              <div class="highlight-desc">Managed a team of 30 members, driving the production of 100+ aerospace components & assemblies across tight deadlines</div>
+            </div>
+          </div>
+
+          <div class="highlight-card">
+            <div class="highlight-icon">&#127891;</div>
+            <div>
+              <div class="highlight-title">Teaching Assistant</div>
+              <div class="highlight-desc">ME344 Control Systems &middot; ME321 Advanced Mechanical Design &middot; Duke University</div>
+            </div>
+          </div>
+
+        </div><!-- /.about-highlights -->
+      </div><!-- /.about-text -->
+
+      <!-- Right: hobbies + coursework -->
+      <div class="fade-up" style="transition-delay:0.15s">
+
+        <div class="about-interests">
+          <h4>Hobbies &amp; Passions</h4>
+          <div class="interest-list">
+            <div class="interest-item">Sketching portraits &amp; Madhubani painting &mdash; published in <em>The Hindu</em> &amp; Times Children Magazine</div>
+            <div class="interest-item">Cricket &mdash; Under-14 State Level, Hyderabad Cricket Association (HCA)</div>
+            <div class="interest-item">Formula 1 racing, libraries &amp; weekend movies</div>
+            <div class="interest-item">Building rocketry systems from concept to launch</div>
+          </div>
+        </div>
+
+        <!-- Coursework chips — add/remove <span class="chip"> -->
+        <div style="margin-top:2.5rem">
+          <h4 style="font-weight:600;font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem">
+            Relevant Coursework
+          </h4>
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem">
+            <span class="chip">Business Fundamentals</span>
+            <span class="chip">Supply Chain Management</span>
+            <span class="chip">Aerodynamics</span>
+            <span class="chip">Space Systems Design</span>
+            <span class="chip">Finite Element Method</span>
+            <span class="chip">Vehicle Dynamics</span>
+            <span class="chip">Control Systems</span>
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Lean Manufacturing</span>
+            <span class="chip">Nano Tech &amp; MEMS</span>
+            <span class="chip">Product Management</span>
+          </div>
+        </div>
+
+      </div><!-- /.right col -->
+    </div><!-- /.about-grid -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     3.  EDUCATION SECTION
+     Add a new .edu-card block to add another institution.
+═══════════════════════════════════════════════════════════════ -->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title">Education</h2>
+    <p class="section-sub">A multidisciplinary foundation across mechanical engineering, manufacturing, data science, and entrepreneurship.</p>
+
+    <div class="edu-list">
+
+      <!-- Duke University -->
+      <div class="edu-card fade-up">
+        <div class="edu-logo"><img src="Images/dukelogo.png" alt="Duke University Logo"></div>
+        <div>
+          <div class="edu-school">Duke University</div>
+          <div class="edu-degree">MS Mechanical Engineering &amp; Material Science &middot; Fuqua Innovation &amp; Entrepreneurship</div>
+          <div class="edu-meta">2025 &ndash; 2027 &middot; Durham, NC</div>
+          <ul class="edu-bullets">
+            <li>Coursework: Business Fundamentals, Supply Chain Management, Aerodynamics, Space Systems Design, Finite Element Method, Experimental Design, Vehicle Dynamics</li>
+            <li>Graduate Teaching Assistant &mdash; ME344 Control Systems</li>
+            <li>Graduate Teaching Assistant &mdash; ME321 Advanced Mechanical Design</li>
+            <li>Student Advisory Board Member</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Manipal Institute of Technology -->
+      <div class="edu-card fade-up">
+        <div class="edu-logo"><img src="Images/Manipal_University_logo.png" alt="Manipal Institute of Technology Logo"></div>
+        <div>
+          <div class="edu-school">Manipal Institute of Technology</div>
+          <div class="edu-degree">BTech Mechanical Engineering &middot; Minors in Manufacturing &amp; Data Science</div>
+          <div class="edu-meta">2020 &ndash; 2024 &middot; Manipal, India</div>
+          <ul class="edu-bullets">
+            <li>Payload &amp; Structures Member &mdash; thrustMIT Student Rocketry Team (2021&ndash;2024)</li>
+            <li>Organizer &mdash; Tech Tatva Tech Fest, Escape Velocity (2022&ndash;2023)</li>
+            <li>HRD Organizer &mdash; Revels Fest, Odyssey of Dreams (2023&ndash;2024)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- High School -->
+
+    </div><!-- /.edu-list -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     4.  EXPERIENCE SECTION
+     Add a new .exp-card block for each job.
+     Structure: role → date → company → pills → bullets → outcome
+═══════════════════════════════════════════════════════════════ -->
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Hands-on engineering leadership across aerospace manufacturing, defense R&amp;D, and production operations.</p>
+
+    <div class="exp-timeline">
+
+      <!-- Job 1: BCT -->
+      <div class="exp-card fade-up">
+        <div class="exp-inner">
+          <div class="exp-header">
+            <div class="exp-role">Manufacturing &amp; Industrial Engineer</div>
+            <div class="exp-date">Jan 2024 &ndash; Jul 2025</div>
+          </div>
+          <div class="exp-company">Balaji CNC Technologies (BCT Group) &middot; Hyderabad, India</div>
+
+          <!-- Tools — add/remove .pill spans -->
+          <div class="exp-pills">
+            <span class="pill">Python</span><span class="pill">AWS</span><span class="pill">ERP</span>
+            <span class="pill">SolidWorks</span><span class="pill">Mastercam</span><span class="pill">AS9100D</span>
+            <span class="pill">CNC</span><span class="pill">CMM</span>
+          </div>
+
+          <!-- Responsibilities — add/remove <li> items -->
+          <ul class="exp-bullets">
+            <li>Engineered &amp; architected 75+ aircraft/rocket components using CAD/CAM (Mastercam, SolidWorks) for multi-assembly integration</li>
+            <li>Designed and deployed a comprehensive ERP system using API, Python, AWS, and SQL &mdash; automating data flow, inventory management, and reporting across departments</li>
+            <li>Performed forecasting and scheduling of parts, reducing idle time by 10&ndash;15%; procured materials and analyzed production/capacity planning for Q+1</li>
+            <li>Established relationships and secured 10+ purchase orders (valuation: $100K+); supported AS9100D audit with 100% compliant documentation</li>
+            <li>Operated CNC turning/milling and EDM systems; performed ISO-compliant QC using CMM, projectors, and gauges &mdash; reducing cycle/setup times by 25%</li>
+            <li>Delivered FAIs and completed 4 projects covering 100+ components within 4 months</li>
+          </ul>
+
+          <!-- Outcome callout — edit the text -->
+          <div class="outcome">&#128200; Outcome: Increased efficiency by 30&ndash;40% &middot; Reduced lead times 15&ndash;20% &middot; Added $120K in revenue for the fiscal year</div>
+        </div>
+      </div>
+
+      <!-- Job 2: DRDO -->
+      <div class="exp-card fade-up">
+        <div class="exp-inner">
+          <div class="exp-header">
+            <div class="exp-role">Research Intern</div>
+            <div class="exp-date">Dec 2022 &ndash; Jan 2023</div>
+          </div>
+          <div class="exp-company">Liquid Propulsion Laboratory, DRDL, DRDO &middot; Hyderabad, India</div>
+
+          <div class="exp-pills">
+            <span class="pill">AMESim</span><span class="pill">MATLAB</span><span class="pill">MEMS</span><span class="pill">Pressure Regulation</span>
+            <span class="pill">Calibration</span><span class="pill">Micro-thrust</span>
+          </div>
+
+          <ul class="exp-bullets">
+            <li>Modeled a pressure regulator in AMESim, MATLAB &mdash; achieving a precise prediction of 20.48 bar vs. experimental 21 bar; witnessed effective functioning during a static fire test</li>
+            <li>Conducted research on micro-thruster thrust stands using MEMS electromagnetic and electrostatic fins to identify the range of micro-thrust measurement</li>
+          </ul>
+
+          <div class="outcome">&#128300; Outcome: High-fidelity simulation validated against live test data &middot; Contributed to micro-propulsion R&amp;D at India's premier defense lab</div>
+        </div>
+      </div>
+
+    </div><!-- /.exp-timeline -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     5.  PROJECTS SECTION
+     Each .project-card = one project.
+     To add a project: copy one card block, update all text and src.
+     Image placeholder: use style="background:var(--accent-light)" + emoji if no photo.
+═══════════════════════════════════════════════════════════════ -->
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">From sounding rockets to ERP systems &mdash; engineering solutions across disciplines.</p>
+
+    <div class="projects-grid">
+
+      <!-- Project 1: FSAE Racecar -->
+      <div class="project-card fade-up">
+        <div class="project-img">
+          <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/FSAE CAR.jpg" alt="FSAE Racecar" />
+          <span class="project-category">Aerodynamics</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Project Racecar &mdash; Duke Motorsports FSAE</div>
+          <div class="project-role">Aerodynamics &amp; Vehicle Dynamics Engineer</div>
+          <div class="project-resp">Integrated suspension force reconstruction with CFD-based aerodynamic analysis to optimize FSAE car performance. Performed root cause analysis on previous version, iterating airfoil geometry and rear wing diffuser design.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> Downforce doubled; drag reduced by 45%; cl/cd and traction improved by 8% &mdash; validated in wind tunnel testing</div>
+          <div class="project-tags">
+            <span class="tag">SolidWorks</span><span class="tag">CFD</span><span class="tag">ANSYS Fluent</span><span class="tag">Aero Optimization</span>
+          </div>
+          <a href="https://sites.duke.edu/memscapstone/duke-race-motor/" target="_blank" class="project-link">View Project &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 2: ERP System -->
+      <div class="project-card fade-up">
+        <div class="project-img">
+          <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/ERP.jpeg" alt="ERP System" />
+          <span class="project-category">Software</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Enterprise Resource Planning (ERP) System</div>
+          <div class="project-role">Designer &amp; Developer &mdash; Production &amp; Operations Engineer</div>
+          <div class="project-resp">Designed a comprehensive ERP integrating finance, HR, and supply chain into a unified platform. Automated data flow, inventory management, and reporting using Python, AWS, SQL, and REST APIs.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> 40% increase in cross-department efficiency; real-time data access; streamlined audit and route-card compliance</div>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">AWS</span><span class="tag">SQL</span><span class="tag">REST API</span><span class="tag">Supply Chain</span>
+          </div>
+          <a href="https://www.bctaerospace.in/" target="_blank" class="project-link">View Company &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 3: Altair Rocket -->
+      <div class="project-card fade-up">
+        <div class="project-img">
+          <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/IMG_5016.jpg" alt="Altair Sounding Rocket" />
+          <span class="project-category">Aerospace</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Altair &mdash; Sounding Rocket (SAC 2023)</div>
+          <div class="project-role">Launch Operations Lead &middot; Payload &amp; Structures Engineer</div>
+          <div class="project-resp">Engineered and fabricated a sounding rocket using Fusion 360, SolidWorks, HyperMesh, ORK, and ANSYS. Led launch operations at Spaceport America Cup. Built a parallel-manipulator payload in 4U CubeSat with MPU-based 3-DOF control and in-house PCB design.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> Ranked 10/167 globally at SAC 2023 &middot; Production lead time cut by 40% &middot; Captured first real-time flight data</div>
+          <div class="project-tags">
+            <span class="tag">Fusion 360</span><span class="tag">ANSYS</span><span class="tag">3DOF Parallel Manipulator</span><span class="tag">CubeSat</span><span class="tag">Agile</span>
+          </div>
+          <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /PROJECTS/Altair Technical Report .pdf" target="_blank" class="project-link">View Report &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 4: Rayquaza Rocket -->
+      <div class="project-card fade-up">
+        <div class="project-img">
+          <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/Rayquaza launch.jpeg" alt="Rayquaza Rocket" />
+          <span class="project-category">Aerospace</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Rayquaza &mdash; Sounding Rocket (SAC 2022)</div>
+          <div class="project-role">Payload Engineer</div>
+          <div class="project-resp">Built a CNT-based C.A.V.E. system with enhanced piezoelectric sensing achieving 30% vibration damping. Worked on spectroscopy and carbon-capture (LiOH) payloads. Implemented a gear and servo air-brake system for precision apogee control.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> 98% precision in apogee control; qualified through modal and subscale ascent-load tests</div>
+          <div class="project-tags">
+            <span class="tag">CNT</span><span class="tag">Piezoelectric</span><span class="tag">Air Brakes</span><span class="tag">Servo Control</span>
+          </div>
+          <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /PROJECTS/Rayquaza Technical Report.pdf" target="_blank" class="project-link">View Report &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 5: Aircraft Pitch Control (no photo — uses emoji background) -->
+      <div class="project-card fade-up">
+        <div class="project-img" style="background:var(--accent-light)">
+          <span style="font-size:2.5rem">&#9992;&#65039;</span>
+          <span class="project-category">Controls</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Aircraft Pitch Control System</div>
+          <div class="project-role">Control Systems Coursework &middot; Prof. Kevin Amith</div>
+          <div class="project-resp">Modeled a 3-DOF aircraft pitch control system in MATLAB/Simulink. Generated stiffness matrices that accurately predicted a global 1&times;10^6 mm displacement under a 4800 N load.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> High-fidelity simulation model validated against analytical benchmarks</div>
+          <div class="project-tags">
+            <span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">3-DOF</span><span class="tag">FEM</span>
+          </div>
+          <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /PROJECTS/Aircraft Pitch Control Report.pdf" target="_blank" class="project-link">View Report &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Project 6: Heat Exchanger -->
+      <div class="project-card fade-up">
+        <div class="project-img">
+          <img src="https://pranavthakur4.github.io/PranavPortfolio/IMAGES/radial Pin heat exchanger cad.jpeg" alt="Heat Exchanger" />
+          <span class="project-category">Thermodynamics</span>
+        </div>
+        <div class="project-body">
+          <div class="project-title">Parallel Flow Radial Pin Fin Heat Exchanger</div>
+          <div class="project-role">Thermodynamics Course Project</div>
+          <div class="project-resp">Analyzed and improved parallel-flow heat exchanger performance for chillers by integrating radial and pin fins. Evaluated design as a potential heat sink for advanced cooling applications.</div>
+          <div class="project-outcome"><strong>Outcome:</strong> Heat-transfer coefficient raised from 732 &rarr; 1532 W/m&sup2;K &mdash; a 60.7% improvement</div>
+          <div class="project-tags">
+            <span class="tag">CAD</span><span class="tag">CFD</span><span class="tag">Thermal Analysis</span><span class="tag">Heat Transfer</span>
+          </div>
+          <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /PROJECTS/Parallel Flow Heat Exchanger Project Report.pdf" target="_blank" class="project-link">View Report &rarr;</a>
+        </div>
+      </div>
+
+    </div><!-- /.projects-grid -->
+
+    <!-- Published Research Papers -->
+    <div style="margin-top:3rem;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)" class="fade-up">
+      <h3 style="font-family:'DM Serif Display',serif;font-size:1.2rem;margin-bottom:1.25rem">Publication*</h3>
+      <div style="display:grid;gap:1rem">
+
+        <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/Payload_Deployment_Mechanism-4.pdf" target="_blank"
+           style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);transition:box-shadow 0.2s"
+           onmouseover="this.style.boxShadow='var(--shadow)'" onmouseout="this.style.boxShadow='none'">
+          <span style="font-size:1.5rem;flex-shrink:0">&#128196;</span>
+          <div>
+            <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.2rem">A Novel Non-Pyrotechnic Radial Deployment Mechanism for Payloads in Sounding Rockets</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">Filed patent &middot; Indian Patent Office Application No. 202341075776 &middot; Read Paper &rarr;</div>
+          </div>
+        </a>
+
+        <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/Stewie_IEEE_Access_v2.5.pdf" target="_blank"
+           style="display:flex;align-items:flex-start;gap:1rem;padding:1rem;background:var(--bg);border-radius:var(--radius-sm);border:1px solid var(--border);transition:box-shadow 0.2s"
+           onmouseover="this.style.boxShadow='var(--shadow)'" onmouseout="this.style.boxShadow='none'">
+          <span style="font-size:1.5rem;flex-shrink:0">&#128196;</span>
+          <div>
+            <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.2rem">Design and Control of &ldquo;STEWIE&rdquo;: A Robotic Payload Stabilization Mechanism for Rocket Flights</div>
+            <div style="font-size:0.8rem;color:var(--text-muted)">IEEE Access &middot; Read Paper &rarr;</div>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /.research papers -->
+
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     6.  SKILLS SECTION
+     Each .skill-group = one category.
+     Add/remove <span class="skill-tag"> for individual skills.
+═══════════════════════════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills &amp; Tools</h2>
+    <p class="section-sub">Technical and leadership competencies built across aerospace, manufacturing, software, and data domains.</p>
+
+    <div class="skills-grid">
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">CAD / CAM / CAE</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">Fusion 360</span>
+          <span class="skill-tag">CATIA</span>
+          <span class="skill-tag">Mastercam</span>
+          <span class="skill-tag">HyperMesh</span>
+          <span class="skill-tag">Powermill</span>
+          <span class="skill-tag">Autocad</span> 
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Simulation &amp; Analysis</div>
+        <div class="skill-tags">
+          <span class="skill-tag">ANSYS</span>
+          <span class="skill-tag">ANSYS Fluent (CFD)</span>
+          <span class="skill-tag">OpenFOAM</span>
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Simulink</span>
+          <span class="skill-tag">AMESim</span>
+          <span class="skill-tag">OpenRocket</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL / PostgreSQL</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Git / GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Cloud &amp; Data</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">ERP Development</span>
+          <span class="skill-tag">Data Engineering</span>
+          <span class="skill-tag">Machine Learning</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Manufacturing &amp; QA</div>
+        <div class="skill-tags">
+          <span class="skill-tag">CNC Turning/Milling</span>
+          <span class="skill-tag">EDM</span>
+          <span class="skill-tag">CMM</span>
+          <span class="skill-tag">AS9100D</span>
+          <span class="skill-tag">Lean Manufacturing</span>
+          <span class="skill-tag">Filament Winding</span>
+          <span class="skill-tag">3D Printing</span>
+          <span class="skill-tag">Arcocad</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Operations &amp; Leadership</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Supply Chain Mgmt</span>
+          <span class="skill-tag">Project Management</span>
+          <span class="skill-tag">Vendor Sourcing</span>
+          <span class="skill-tag">Agile Methods</span>
+          <span class="skill-tag">Team Management</span>
+          <span class="skill-tag">Public Speaking</span>
+          <span class="skill-tag">Critical Thinking</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-up">
+        <div class="skill-group-title">Design &amp; Productivity</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">MS Office</span>
+          <span class="skill-tag">LaTeX</span>
+        </div>
+      </div>
+
+    </div><!-- /.skills-grid -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     7.  TESTIMONIALS / RECOMMENDATIONS SECTION
+     Each .testimonial-card = one recommendation.
+     Edit: quote text, author-avatar letter, author name/title, LOR PDF link.
+═══════════════════════════════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <h2 class="section-title">Recommendations</h2>
+    <p class="section-sub">Testimonials and letters of recommendation from managers, faculty, and team leads.</p>
+
+    <div class="testimonials-grid">
+
+      <!-- Testimonial 1: BCT -->
+      <div class="testimonial-card fade-up">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="testimonial-text">Pranav demonstrated exceptional engineering judgment and leadership at BCT. He independently architected our ERP system, certified AS9100D, and consistently delivered precision aerospace components ahead of schedule. His ability to bridge technical depth with operational thinking is rare.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">B</div>
+          <div>
+            <div class="author-name">Management, BCT Group</div>
+            <div class="author-title">Balaji CNC Technologies &middot; Hyderabad, India</div>
+          </div>
+        </div>
+        <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /BCT LOR.pdf" target="_blank" class="lor-link">&#128196; View Full Letter &rarr;</a>
+      </div>
+
+      <!-- Testimonial 2: HOD -->
+      <div class="testimonial-card fade-up">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="testimonial-text">Pranav was one of the most proactive students in our department. His dedication to structural and payload research, combined with his ability to lead teams under pressure during competition launches, set him apart. His research contributions reflect genuine scientific curiosity.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">H</div>
+          <div>
+            <div class="author-name">Head of Department</div>
+            <div class="author-title">Manipal Institute of Technology</div>
+          </div>
+        </div>
+        <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /LOR-HOD.pdf" target="_blank" class="lor-link">&#128196; View Full Letter &rarr;</a>
+      </div>
+
+      <!-- Testimonial 3: thrustMIT -->
+      <div class="testimonial-card fade-up">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="testimonial-text">As Launch Operations Lead for Altair, Pranav was instrumental in our top-10 finish at the Spaceport America Cup 2023 out of 167 teams. He managed a 100+ part supply chain, led subsystem integration, and kept the team focused under launch-day pressure.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div>
+            <div class="author-name">thrustMIT Leadership</div>
+            <div class="author-title">Student Rocketry Team &middot; MIT Manipal</div>
+          </div>
+        </div>
+        <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /LOR-thrustMIT.pdf" target="_blank" class="lor-link">&#128196; View Full Letter &rarr;</a>
+      </div>
+
+    </div><!-- /.testimonials-grid -->
+
+    <!-- Quick-access LOR badges -->
+    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.75rem">
+      <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /BCT LOR.pdf"       target="_blank" class="lor-badge">&#128196; BCT Aerospace LOR</a>
+      <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /LOR-HOD.pdf"       target="_blank" class="lor-badge">&#128196; HOD Recommendation</a>
+      <a href="https://pranavthakur4.github.io/PranavPortfolio/FILES/RESUME /Letter of Recommendation /LOR-thrustMIT.pdf" target="_blank" class="lor-badge">&#128196; thrustMIT Recommendation</a>
+    </div>
+
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     8.  CERTIFICATIONS SECTION
+     Each .cert-card = one cert.
+     Icon colour classes: .orange  .blue  .green
+═══════════════════════════════════════════════════════════════ -->
+<section id="certifications">
+  <div class="container">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-sub">Industry credentials and technical training that complement engineering and operations expertise.</p>
+
+    <div class="cert-grid">
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon orange">&#127981;</div>
+        <div>
+          <div class="cert-name">AS9100D Quality Management Systems</div>
+          <div class="cert-issuer">BCT Aerospace &middot; Internal Certification</div>
+          <div class="cert-year">2024 &middot; Audited &amp; Implemented</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon blue">&#9729;&#65039;</div>
+        <div>
+          <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+          <div class="cert-year">2023</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon green">&#128013;</div>
+        <div>
+          <div class="cert-name">Python for Data Science &amp; Engineering</div>
+          <div class="cert-issuer">Coursera / Self-Directed</div>
+          <div class="cert-year">2022</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon orange">&#128640;</div>
+        <div>
+          <div class="cert-name">Spaceport America Cup &mdash; Technical Certification</div>
+          <div class="cert-issuer">Society of Aeronautical Rockets (SAR)</div>
+          <div class="cert-year">2022 &middot; 2023</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon blue">&#128202;</div>
+        <div>
+          <div class="cert-name">Supply Chain Management Fundamentals</div>
+          <div class="cert-issuer">Duke University &middot; MENG Coursework</div>
+          <div class="cert-year">2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card fade-up">
+        <div class="cert-icon green">&#9881;&#65039;</div>
+        <div>
+          <div class="cert-name">SolidWorks &mdash; Advanced Part Modeling</div>
+          <div class="cert-issuer">Dassault Syst&egrave;mes / MIT Manipal</div>
+          <div class="cert-year">2021</div>
+        </div>
+      </div>
+
+    </div><!-- /.cert-grid -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     9.  EVENTS SECTION
+     Each .event-card = one event.
+     Type badge classes: .competition  .organizer  .academic
+═══════════════════════════════════════════════════════════════ -->
+<section id="events">
+  <div class="container">
+    <h2 class="section-title">Events &amp; Competitions</h2>
+    <p class="section-sub">Competitions, festivals, and academic leadership that shaped collaboration and execution skills.</p>
+
+    <div class="events-grid">
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag competition">&#127942; Competition</span>
+        <div class="event-name">Spaceport America Cup 2023</div>
+        <div class="event-host">ESRA &middot; Las Cruces, New Mexico, USA</div>
+        <div class="event-detail">Led launch operations for sounding rocket &ldquo;Altair&rdquo; &mdash; secured a top-10 global finish out of 167 international student teams. Managed all pre-launch checklists, subsystem handoffs, and real-time field decisions.</div>
+        <div class="event-badge">&#129351; Ranked 10 / 167 Teams</div>
+      </div>
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag competition">&#127942; Competition</span>
+        <div class="event-name">Spaceport America Cup 2022</div>
+        <div class="event-host">ESRA &middot; Las Cruces, New Mexico, USA</div>
+        <div class="event-detail">Competed as Payload Engineer for &ldquo;Rayquaza&rdquo; &mdash; designed and validated CNT-based vibration damping and precision air-brake apogee control. Qualified through modal and subscale ascent-load tests.</div>
+        <div class="event-badge">&#128640; International Qualifier</div>
+      </div>
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag organizer">&#128203; Organizer</span>
+        <div class="event-name">Tech Tatva &mdash; Escape Velocity</div>
+        <div class="event-host">Manipal Institute of Technology &middot; 2022&ndash;2023</div>
+        <div class="event-detail">Organized and managed Escape Velocity, the flagship technical event of MIT's annual Tech Tatva fest. Coordinated logistics, team scheduling, and participant outreach for 500+ attendees.</div>
+      </div>
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag organizer">&#128203; Organizer</span>
+        <div class="event-name">Revels Fest &mdash; Odyssey of Dreams</div>
+        <div class="event-host">MIT Manipal HRD &middot; 2023&ndash;2024</div>
+        <div class="event-detail">HRD organizer for Revels, MIT Manipal's annual cultural festival. Managed volunteer recruitment, on-ground coordination, and event production for one of the largest student-run fests in India.</div>
+      </div>
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag academic">&#127891; Academic</span>
+        <div class="event-name">Graduate Teaching Assistant &mdash; Control Systems</div>
+        <div class="event-host">Duke University &middot; ME344 &middot; 2025&ndash;Present</div>
+        <div class="event-detail">Supporting Prof. Gustafson in running ME344 Control Systems &mdash; grading, holding office hours, and mentoring undergraduate students on LabVIEW.</div>
+      </div>
+
+      <div class="event-card fade-up">
+        <span class="event-type-tag academic">&#127891; Academic</span>
+        <div class="event-name">Student Advisory Board &mdash; Duke Engineering</div>
+        <div class="event-host">Duke University &middot; MS Program &middot; 2025&ndash;Present</div>
+        <div class="event-detail">Elected representative for the MS graduate cohort &mdash; bridging student feedback with faculty and administration to improve curriculum design, professional development, and student experience.</div>
+      </div>
+
+    </div><!-- /.events-grid -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     10.  CONTACT SECTION
+     Left: info cards (email, phone, location, LinkedIn, resume)
+     Right: message form
+     Edit contact values inside .contact-card-value elements.
+═══════════════════════════════════════════════════════════════ -->
+<section id="contact-section">
+  <div class="container">
+    <div class="contact-wrapper">
+
+      <!-- Left: info cards -->
+      <div class="contact-left fade-up">
+        <h2>Let's build something<br>great together</h2>
+        <p>I'm open to full-time opportunities in manufacturing, supply chain, aerospace, data engineering, and operations management. Whether you're a recruiter, collaborator, or just curious &mdash; reach out.</p>
+
+        <div class="contact-cards">
+
+          <!-- Email -->
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">
+                <a href="mailto:pt159@duke.edu">pt159@duke.edu</a><br>
+                <a href="mailto:thakur4pranav@gmail.com">thakur4pranav@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Phone</div>
+              <div class="contact-card-value"><a href="tel:+19192257343">+1 (919) 225-7343</a></div>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Location</div>
+              <div class="contact-card-value">Durham, NC &middot; Mon&ndash;Fri, 8am&ndash;6pm EST</div>
+            </div>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="contact-card">
+            <div class="contact-card-icon" style="background:var(--accent2-light);color:var(--accent2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">LinkedIn</div>
+              <div class="contact-card-value"><a href="https://www.linkedin.com/in/pranavthakur4/" target="_blank">linkedin.com/in/pranavthakur4</a></div>
+            </div>
+          </div>
+
+          <!-- Resume download (styled as a card) -->
+          <a href="Docs/Thakur, Pranav_Resume.pdf"
+             target="_blank" class="contact-card" style="text-decoration:none;cursor:pointer">
+            <div class="contact-card-icon" style="background:#e6f4ea;color:#2d7a47">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-card-label">Resume</div>
+              <div class="contact-card-value" style="color:var(--accent)">Download PDF &rarr;</div>
+            </div>
+          </a>
+
+        </div><!-- /.contact-cards -->
+      </div><!-- /.contact-left -->
+
+      <!-- Right: message form -->
+      <div class="contact-form fade-up" style="transition-delay:0.12s">
+        <h3>Send a message</h3>
+        <p>Fill out the form and I'll get back to you within 24 hours.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="femail">Email Address</label>
+          <input type="email" id="femail" placeholder="jane@company.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="fsubject">Subject</label>
+          <input type="text" id="fsubject" placeholder="Opportunity &middot; Collaboration &middot; General Inquiry" />
+        </div>
+
+        <div class="form-group">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" placeholder="Tell me about your opportunity, project, or question..."></textarea>
+        </div>
+
+        <button class="form-submit"><a href="mailto:pt159@duke.edu">Send Message &rarr;</a></button>
+      </div><!-- /.contact-form -->
+      <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+      </script>
+      <script type="text/javascript">
+        (function(){
+            emailjs.init({
+              publicKey: "VE-XJbSALnGZ6590V",
+            });
+        })();
+      </script>
+      <script src="script.js"></script>
+
+    </div><!-- /.contact-wrapper -->
+  </div><!-- /.container -->
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     11.  FOOTER
+     Edit: social links, quick-link list, contact details.
+═══════════════════════════════════════════════════════════════ -->
+<footer id="contact">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <!-- Column 1: brand + social -->
+      <div>
+        <div class="footer-brand">Pranav<span>.</span></div>
+        <p class="footer-tagline">Mechanical Engineer &amp; Operations Leader open to full-time opportunities in aerospace, manufacturing, supply chain, and data engineering.</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/pranavthakur4/" target="_blank" class="social-btn" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="https://github.com/pranavthakur4" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          </a>
+          <a href="mailto:pt159@duke.edu" class="social-btn" title="Email" aria-label="Email">&#9993;</a>
+        </div>
+      </div>
+
+      <!-- Column 2: quick links -->
+      <div>
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#testimonials">Recommendations</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: contact + resume -->
+      <div>
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          <div>
+            <div><a href="mailto:pt159@duke.edu"          style="color:rgba(255,255,255,0.7)">pt159@duke.edu</a></div>
+            <div><a href="mailto:thakur4pranav@gmail.com" style="color:rgba(255,255,255,0.7)">thakur4pranav@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>+1 (919) 225-7343</div>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>Durham, NC &middot; Mon&ndash;Fri, 8am&ndash;6pm</div>
+        </div>
+        <a href="Docs/Thakur, Pranav_Resume.pdf"
+           target="_blank" class="resume-btn" style="margin-top:1rem;display:inline-flex">
+          &#128196; Download Resume
+        </a>
+      </div>
+
+    </div><!-- /.footer-grid -->
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 Pranav Thakur Gopal Singh &middot; All rights reserved</div>
+      <div class="footer-copy">MS ME @ Duke &middot; Open to Opportunities</div>
+    </div>
+
+  </div><!-- /.container -->
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+     To split into a separate file: move this block to script.js,
+     delete the <script> tags, and add before </body>:
+       <script src="script.js"></script>
+═══════════════════════════════════════════════════════════════ -->
+<script>
+
+/* ── Mobile menu toggle ───────────────────────────────────── */
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Close when clicking outside
+document.addEventListener('click', function (e) {
+  const menu = document.getElementById('mobileMenu');
+  const ham  = document.querySelector('.hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+
+/* ── Nav scroll shadow ────────────────────────────────────── */
+// Adds .scrolled class after user scrolls 20px down
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+
+/* ── Scroll-reveal animations ─────────────────────────────── */
+// Watches .fade-up elements; adds .visible when they enter viewport
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Stagger grid children — each item delays 70ms more than the previous
+const staggerSelectors = [
+  '.projects-grid', '.edu-list', '.exp-timeline',
+  '.testimonials-grid', '.skills-grid',
+  '.cert-grid', '.events-grid', '.contact-cards'
+];
+document.querySelectorAll(staggerSelectors.join(',')).forEach(grid => {
+  grid.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.07}s`;
+  });
+});
+
+
+/* ── Active nav link highlight ────────────────────────────── */
+// Highlights nav link for the section currently in view
+const sections = document.querySelectorAll('section[id], footer[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 90) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+}, { passive: true });
+
+
+/* ── Contact form validation ─────────────────────────────── */
+// Basic client-side check — wire to Formspree or a backend for real submissions
+// See: https://formspree.io for a free no-backend email solution
+function handleFormSubmit(btn) {
+  const name  = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+
+  if (!name || !email) {
+    btn.textContent = 'Please fill name & email above';
+    btn.style.background = '#c0392b';
+    setTimeout(() => {
+      btn.textContent = 'Send Message \u2192';
+      btn.style.background = '';
+    }, 2000);
+    return;
+  }
+
+  // Replace the lines below with a real fetch() POST for production
+  btn.textContent = 'Message Sent \u2713';
+  btn.style.background = '#2d7a47';
+  btn.disabled = true;
+}
+
+</script>
+
+</body>
+</html>
